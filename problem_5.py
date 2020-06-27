@@ -1,4 +1,6 @@
 #Problem 5: Blockchain
+import hashlib
+from datetime import date
 
 class Block:
     def __init__(self, timestamp, data, previous_hash):
@@ -8,7 +10,7 @@ class Block:
       self.hash = self.calc_hash()
       self.next = None
       self.prev = None
-    def calc_hash(self):
+    def calc_hash(self, data):
         sha = hashlib.sha256()
         sha.update(self.data.encode('utf-8'))
         return sha.hexdigest()
