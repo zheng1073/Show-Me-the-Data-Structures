@@ -34,7 +34,7 @@ class LRU_Cache:
             return self.hashMap[key].value
         return -1
 
-    def put(self, key, value):
+    def set(self, key, value):
         if key in self.hashMap:
             #function to push node to head
             self.push_up(self.hashMap[key])
@@ -60,3 +60,28 @@ class LRU_Cache:
                 self.hashMap[key] = Node(key, value)
             del self.hashMap[current_tail]
         self.push_up(self.hashMap[key])
+
+#test 1    
+our_cache = LRU_Cache(10)
+
+our_cache.set(1, 1);
+our_cache.set(2, 2);
+our_cache.set(3, 3);
+our_cache.set(4, 4);
+
+our_cache.get(1)       # returns 1
+our_cache.get(2)       # returns 2
+our_cache.get(9)       # returns -1 because 9 is not present in the cache
+
+#test 2    
+our_cache = LRU_Cache(0)
+
+our_cache.set(1, 1);   #cache size is not valid
+our_cache.get(1)       # returns -1 
+
+#test 3    
+our_cache = LRU_Cache(-1)
+
+our_cache.set(1, 1);   #cache size is not valid
+our_cache.get(1)       # returns -1
+        
