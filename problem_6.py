@@ -51,7 +51,7 @@ def union(llist_1, llist_2):
       if value not in union_list:
         union_list.append(value)
         
-    return union_list
+    return sort(union_list)
 
 def intersection(llist_1, llist_2):
     # Your Solution Here
@@ -60,40 +60,26 @@ def intersection(llist_1, llist_2):
       if value in llist_2:
         lst.append(value)
         
-    return lst
+    return sort(lst)
 
 
-# Test case 1
+# Test
+list_1 = LinkedList()
+list_2 = LinkedList()
 
-linked_list_1 = LinkedList()
-linked_list_2 = LinkedList()
+union(list_1, list_2) #[] --> returns an empty list since both list_1 and list_2 are empty
+intersection(list_1, list_2) #[] --> returns an empty list since both list_1 and list_2 are empty
 
-element_1 = [3,2,4,35,6,65,6,4,3,21]
-element_2 = [6,32,4,9,6,1,11,21,1]
+rando = [1, 5, 7]
+rando2 = [3, 1, 6]
+for val in rando:
+    list_1.append(val)
+intersection(list_1, list_2) #[] --> returns an empty list since list_2 is empty so there are no intersections
+    
+for val in rando2:
+    list_2.append(val)
+union(list_1, list_2) #[1, 3, 5, 6, 7]
+ 
+    
 
-for i in element_1:
-    linked_list_1.append(i)
-
-for i in element_2:
-    linked_list_2.append(i)
-
-print (union(linked_list_1,linked_list_2))
-print (intersection(linked_list_1,linked_list_2))
-
-# Test case 2
-
-linked_list_3 = LinkedList()
-linked_list_4 = LinkedList()
-
-element_1 = [3,2,4,35,6,65,6,4,3,23]
-element_2 = [1,7,8,9,11,21,1]
-
-for i in element_1:
-    linked_list_3.append(i)
-
-for i in element_2:
-    linked_list_4.append(i)
-
-print (union(linked_list_3,linked_list_4))
-print (intersection(linked_list_3,linked_list_4))
 
