@@ -1,6 +1,6 @@
 #Problem 5: Blockchain
 import hashlib
-from datetime import date
+import datetime
 
 class Block:
     def __init__(self, timestamp, data, previous_hash):
