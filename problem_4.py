@@ -24,18 +24,16 @@ class Group(object):
 def is_user_in_group(user, group):
     in_group = False
     
-    for users in group.get_users():
-        if users == user: 
-            in_group = True
+    if user in group.get_users():
+        in_group = True
+        return in_group
+    else:
+        if len(group.get_groups()) == 0:
             return in_group
-    """
-    Return True if user is in the group, False otherwise.
-
-    Args:
-      user(str): user name/id
-      group(class:Group): group to check user membership against
-    """
-    return in_group
+        else:
+            for orgs in group.get_groups():
+                is_user_in_group(user, orgs)
+  
 
 #Test
 parent = Group("parent")
