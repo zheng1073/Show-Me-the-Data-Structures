@@ -43,22 +43,44 @@ class LinkedList:
 
 def union(llist_1, llist_2):
     # Your Solution Here
+    list_1 = []
+    list_2 = []
+    node1 = llist_1.head
+        while node1:
+            list_1.append(node1.value)
+            node1 = node1.next
+    node2 = llist_2.head
+        while node2:
+            list_2.append(node2.value)
+            node2 = node2.next
+    
     union_list = []
-    for node in llist_1:
-      if node.value not in union_list:
-        union_list.append(node.value)
-    for node in llist_2:
-      if node.value not in union_list:
-        union_list.append(node.value)
+    for value in list_1:
+      if value not in union_list:
+        union_list.append(value)
+    for value in list_2:
+      if value not in union_list:
+        union_list.append(value)
         
     return sort(union_list)
 
 def intersection(llist_1, llist_2):
     # Your Solution Here
+    list_1 = []
+    list_2 = []
+    node1 = llist_1.head
+        while node1:
+            list_1.append(node1.value)
+            node1 = node1.next
+    node2 = llist_2.head
+        while node2:
+            list_2.append(node2.value)
+            node2 = node2.next
+            
     lst = []
-    for node in llist_1:
-      if node.value in llist_2:
-        lst.append(node.value)
+    for value in list_1:
+      if value in list_2:
+        lst.append(value)
         
     return sort(lst)
 
