@@ -29,4 +29,17 @@ def find_files(suffix, path):
     """
     return list_paths
   
-  #O(N)
+ 
+#Test 
+path = os.getcwd() + '/testdir'
+# Test Case 1 
+find_files('.c', path)
+# [./testdir/subdir3/subsubdir1/b.c, ./testdir/subdir5/a.c, ./testdir/subdir1/a.c, ./testdir t1.c]
+
+# Test Case 2
+find_files('.h', path)
+# [./testdir/subdir3/subsubdir1/b.h, ./testdir/subdir5/a.h, ./testdir/subdir1 a.h, ./testdir t1.h]
+
+# Test Case 3
+find_files('.z', path)
+# []
