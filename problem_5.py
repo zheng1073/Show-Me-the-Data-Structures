@@ -20,13 +20,13 @@ class Block:
     def __str__(self):
         return ('Timestamp: {}\nData: {}\nPrevious Hash: {}\nHash: {}'.format(self.timestamp, self.data, self.previous_hash, self.hash))
 
-class BlockChain(object):
+class BlockChain:
     def __init__(self):
         self.head = None
         self.tail = None
     def appendBlock(self, val):
         if val is None or val =="":
-            return
+            return False
         if self.head is None:
             timeS = datetime.datetime.utcnow()
             self.head = Block(timeS, data, 0)
@@ -45,20 +45,15 @@ class BlockChain(object):
             block = block.next
         return out
 
-blockchain = BlockLinkedList()
+#Test
+test = Blockchain()
+test.appendBlock("") #False
 
-blockchain.append(55)
+test_2 = Blockchain()
+test_2.toList() #[] <-- since blockchain is empty, it'll return an empty list
 
-print(blockchain.tail)
-
-
-blockchain.append()
-
-print(blockchain.tail)
-
-
-blockchain.append(123)
-
-print(blockchain.tail)
-
-print(blockchain.head)
+test_3 = Blockchain()
+list_1 = ['abc', 'def', 'hij']
+for words in list_1:
+    test_3.appendBlock(words)
+test_3.toList() #should return a list with all the info in it
